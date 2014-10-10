@@ -1,0 +1,180 @@
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <title>Oops soming went worng</title>
+    <meta name="description" content="a new way to experience visual creation">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="apple-touch-icon-precomposed.png" rel="apple-touch-icon-precomposed">
+    <link href="apple-touch-icon-72x72-precomposed.png" rel="apple-touch-icon-precomposed" sizes="72x72">
+    <link href="apple-touch-icon-114x114-precomposed.png" rel="apple-touch-icon-precomposed" sizes="114x114">
+    <link href="apple-touch-icon-144x144-precomposed.png" rel="apple-touch-icon-precomposed" sizes="144x144">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic' rel='stylesheet' type='text/css'>
+
+     <style>
+        html, body {
+            margin: 0;
+            background-color: #f2eee2;
+        }
+        section {
+            width: 1280px;
+            padding: 0;
+            margin: auto;
+            height: 100%;
+            background-color: #fcf8ee;
+        }
+
+        #container {
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -500px;
+            margin-top: -200px;
+            overflow: hidden;
+        }
+
+        .text {
+            font-family: 'Roboto Condensed', 'Open Sans Condensed', sans-serif;
+            font-size: 72px;
+            font-weight: 300;
+            padding-top: 70px;
+            padding-left: 195px;
+            color: #015761;
+
+        }
+
+        #pixmeesh_logo_object  {
+            width: 1000px;
+
+
+        }
+
+        #pixmeesh_logo_object div {
+            width: 100%;
+            max-width: 1000px;
+            height: 220px;
+            background-image: url("pixmeesh_logo.png");
+        }
+
+        /** small device **/
+        @media only screen and (min-device-width : 320px) and (max-device-width : 760px) and (orientation : landscape) {
+
+             section {
+                width: 100%;
+            }
+            #container {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-left: -250px;
+                margin-top: -100px;
+                overflow: hidden;
+            }
+            #pixmeesh_logo_object {
+                 max-width: 400px;
+            }
+            .text {
+                font-size: 35px;
+                font-weight: 300;
+                padding-left: 78px;
+                padding-top: 35px;
+            }
+
+        }
+        /** small devices **/
+        @media only screen and (min-device-width : 320px) and (max-device-width : 760px) and (orientation : portrait) {
+            section {
+               width: 100%;
+            }
+            #container {
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  margin-left: -150px;
+                  margin-top: -100px;
+                  overflow: hidden;
+            }
+            #pixmeesh_logo_object {
+                max-width: 300px;
+            }
+            .text {
+
+                font-size: 35px;
+                font-weight: 300;
+                padding-left: 57px;
+                padding-top: 35px;
+             }
+
+        }        
+
+        /** ipad **/
+        @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+            #container {
+                margin-left: -350px;
+            }
+
+            .text {
+               padding-top: 35px;
+               padding-left: 130px;
+             }
+             #pixmeesh_logo_object {
+                max-width: 700px;
+             }
+
+
+        }
+        @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+             .text {
+               padding-left: 193px;
+               
+             }
+        }
+
+   </style>
+
+</head>
+
+<body>
+
+<section>
+    <div id="container">
+
+        <object id="pixmeesh_logo_object" data="pixmeesh_logo.svg" type="image/svg+xml" onload="animateEyes()" class="logo" width="100%">
+            <div>pixmeesh logo</div>
+        </object>
+
+
+        <div class='text'>Oops! something went wrong.<br>Please try again later</div>
+    </div>
+
+</section>
+
+
+<script type="text/javascript">
+
+    function animateEyes() {
+        var a = document.getElementById("pixmeesh_logo_object");
+        var svgDoc = a.contentDocument;
+        var eyes = svgDoc.getElementById("eyes_cover").getElementsByTagName('path')[0];
+        var use = svgDoc.getElementById("logo_symbol").getElementsByTagName('use')[2];
+        eyes.setAttribute('opacity', '0');
+        eyes.setAttribute('opacity', '1');
+        use.setAttribute('overflow','visible');
+        setTimeout(function open(){eyes.setAttribute('opacity', '0');use.setAttribute('overflow','hidden')},150);
+        var rand = Math.round(Math.random() * (10000)) + 500;
+        setTimeout(function() {animateEyes();}, rand);
+    }
+
+
+</script>
+</body>
+
+
+</html>
